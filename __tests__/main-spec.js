@@ -1,57 +1,57 @@
-const add = require('../main');
+const {isValid,
+    multiplyTable,
+    generateMultiplyArray,
+    printMultiplyTable} = require('../main');
 
-it ('should add two numbers', () => {
-    expect(add(2, 3)).toBe(5);
+
+it ('should check if parmarters is legal', () => {
+    //given
+    const firstNumber = 1;
+    const secondNumber = 1000;
+
+    //when
+    const result = isValid(firstNumber,secondNumber);
+    
+    //then
+    expect(result).toBe(true);
 });
 
-//given
-const firstNumber=1;
-const secondNumber=2;
-//when
-const result=multiply (firstNumber,secondNumber);
-//then
-espect (result.tobe("1*2=2"))
+it ('should generate array with table items', () => {
+    //given
+    const firstNumber = 2;
+    const secondNumber = 3;
 
+    //when
+    const result = generateMultiplyArray(firstNumber,secondNumber);
 
+    //then
+    expect(result[0][0]).toBe("2*2=4");
+    expect(result[1][0]).toBe("2*3=6");
+    expect(result[1][1]).toBe("3*3=9");
+});
 
-it ('should generated one expression', () => {
+it ('should generate result string', () => {
+    //given
+    const array = [];
+    array[0] = [];
+    array[0][0] = "2*2=4";
 
-//given
-const startNumber=2;
-const endNumber=2;
+    //when
+    const result = printMultiplyTable(array);
 
-//when
-const oneExpression=generateoneExpression (firstNumber,secondNumber);
+    //then
+    expect(result).toBe("2*2=4 \n");
+});
 
-//then
-espect (oneExpression.tobe("2*2=4");
+it ('should print multiply table', () => {
+    //given
+    const firstNumber = 2;
+    const secondNumber = 3;
 
+    //when
+    const result = multiplyTable(firstNumber,secondNumber);
 
-
-
-
-
-
-const{isValid}=require('../main')
-it(should numbers be valid', () => {
-//given
-var firstNumber=2;
-var secondNumber=3;
-//when
-var result=is vaild (firstNumber,secondNumber);
-//then
-expect (result.tobe(true))
-})
-
-it('should generated array with table item',() => {
-   //given
-var firstNumber=2;
-var secondNumber=3;
-//when
-var generated array=generatemultiplyarray(firstNumber,secondNumber);
-//then
-expect(generated array[0][0],'2*2=4');
-expect(generated array[1][0],'2*3=6');
-expect(generated array[1][1],'3*3=9');
-}) 
+    //then
+    expect(result).toBe("2*2=4 \n2*3=6 3*3=9 \n");
+});
 
