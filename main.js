@@ -44,3 +44,24 @@ module.exports = {
     generateMultiplyArray,
     printMultiplyTable
 }
+
+
+
+function generateMultiplyArray(firstnumber,secondnumber){
+    var generateMultiplyArray=[];
+    var times=secondnumber-firstnumber+1;
+
+    for(let rowindex=0;rowindex<times;rowindex++){
+        var rows=[];
+        for(let colunmindex=0;colunmindex<(rowindex+1);colunmindex++){
+            var result=(colunmindex+firstnumber)*(rowindex+firstnumber)
+            var item=(colunmindex+firstnumber)+"*"+(rowindex+firstnumber)+'='+result;
+            row.push(item);
+        }
+        generatedArray.push(row);
+    }
+
+    console.log(generatedArray);
+    return generatedArray;
+    
+}
